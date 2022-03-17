@@ -27,7 +27,7 @@ const reactionSchema = new Schema(
         getters: true,
       },
     }
-  );
+);
   
 // Schema to create User model
 const thoughtSchema = new Schema(

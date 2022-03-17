@@ -29,14 +29,14 @@ getAllThoughts(req, res) {
     Thought.create(req.body)
       .then((thought) => {
         return User.findOneAndUpdate(
-          { _id: req.body.userId },
-          { $addToSet: { thought: thought._id } },
+          { _id: req.body.id },
+          { $addToSet: { thoughts: thought._id } },
           { new: true }
         );
       })
       .then((user) =>
         !user
-          ? res.status(404).json({ message: 'Post created, but found no user with that ID' })
+          ? res.status(404).json({ message: 'Post created, but no user found with that ID' })
           : res.json('Created the post 🎉')
       )
       .catch((err) => {
@@ -44,6 +44,30 @@ getAllThoughts(req, res) {
         res.status(500).json(err);
       });
   },
+
+  // update thought
+  updateThought({ params, body }, res) {
+    Thought.findOneAndUpdate({ _id: params.id }, body, { new: true })
+      .then((data) => {
+        if (!data) {
+          res.status(404).json({ message: "No thought found with this ID" });
+        }
+        res.json(data);
+      })
+      .catch((err) => res.status(400).json(err));
+  },
+
+    // delete thought
+    deleteThought({ params }, res) {
+        Thought.findOneAndDelete({ _id: params.id })
+          .then((data) => {
+            if (!data) {
+              res.status(404).json({ message: "No thought found with this ID" });
+            }
+            res.json(data);
+          })
+          .catch((err) => res.status(400).json(err));
+      },
 
 };
 

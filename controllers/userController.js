@@ -52,7 +52,7 @@ getAllUsers(req, res) {
   },
 
   // delete user
-  deleteUser(req, res) {
+  deleteUser({ params }, res) {
     User.findOneAndDelete({ _id: params.id })
       .then((data) => {
         if (!data) {
