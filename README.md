@@ -4,7 +4,7 @@
 
 ## Description
 
-An E-Commerce back-end that uses current technologies such as Sequelize and dotenv to offer a streamlined and modularized series of api routes able to handle Http CRUD operations efficiently and accurately. 
+A social network api that utilizes MongooseDB to provide the user with functional and modularized routes that allow for full CRUD operations for new users, thoughts, reactions and the ability to add and remove friends from their personal networks. 
 
 ## Table of Contents
 
@@ -20,14 +20,6 @@ Clone this repository, install Node and then run install to install all dependen
 
 `npm install`
 
-Create the database by logging into MySql and running the schema.sql
-
-`source ./db/schema.sql`
-
-Back in the command line, seed the database
-
-`npm run seed`
-
 Run.
 
 `npm start`
@@ -36,7 +28,7 @@ Run.
 
 Begin by running with `npm start`
 
-[`Link to Tutorial`](https://drive.google.com/file/d/1_-YUpq867GixV1UcVJW7NBi8Vl6EIqlR/view)
+[`Link to Tutorial`]()
 
 ## License
 
